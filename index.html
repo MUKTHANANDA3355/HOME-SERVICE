@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Home Service Booking</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Icons -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+
+    <header class="navbar">
+
+        <div class="logo">
+            <i class="fa-solid fa-house"></i>
+            HomeFix
+        </div>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#services">Services</a>
+            <a href="#providers">Providers</a>
+            <a href="#bookings">My Bookings</a>
+        </nav>
+
+        <div class="nav-right">
+            <button class="login-btn" onclick="openLogin()">
+                <i class="fa-solid fa-user"></i>
+                Login
+            </button>
+        </div>
+
+    </header>
+
+
+    <!-- ================= HERO ================= -->
+
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+
+            <h1>
+                Reliable Home Services
+                <span>At Your Doorstep</span>
+            </h1>
+
+            <p>
+                Find trusted professionals and book home services
+                quickly and conveniently.
+            </p>
+
+            <button class="primary-btn" onclick="scrollToServices()">
+                Book a Service
+                <i class="fa-solid fa-arrow-right"></i>
+            </button>
+
+        </div>
+
+        <div class="hero-image">
+            <i class="fa-solid fa-house-chimney"></i>
+        </div>
+
+    </section>
+
+
+    <!-- ================= SERVICES ================= -->
+
+    <section class="section" id="services">
+
+        <div class="section-title">
+
+            <p>OUR SERVICES</p>
+
+            <h2>Choose a Service</h2>
+
+            <span>
+                Professional services for your home
+            </span>
+
+        </div>
+
+
+        <div class="service-grid">
+
+            <div class="service-card"
+                onclick="selectService('Plumbing')">
+
+                <div class="service-icon">
+                    <i class="fa-solid fa-wrench"></i>
+                </div>
+
+                <h3>Plumbing</h3>
+
+                <p>
+                    Pipe repair, leakage fixing and
+                    plumbing services.
+                </p>
+
+                <button>
+                    Book Now
+                </button>
+
+            </div>
+
+
+            <div class="service-card"
+                onclick="selectService('Electrical Work')">
+
+                <div class="service-icon">
+                    <i class="fa-solid fa-bolt"></i>
+                </div>
+
+                <h3>Electrical Work</h3>
+
+                <p>
+                    Wiring, switches, lights and
+                    electrical repairs.
+                </p>
+
+                <button>
+                    Book Now
+                </button>
+
+            </div>
+
+
+            <div class="service-card"
+                onclick="selectService('Cleaning')">
+
+                <div class="service-icon">
+                    <i class="fa-solid fa-broom"></i>
+                </div>
+
+                <h3>Cleaning</h3>
+
+                <p>
+                    Professional home and deep
+                    cleaning services.
+                </p>
+
+                <button>
+                    Book Now
+                </button>
+
+            </div>
+
+
+            <div class="service-card"
+                onclick="selectService('Carpentry')">
+
+                <div class="service-icon">
+                    <i class="fa-solid fa-hammer"></i>
+                </div>
+
+                <h3>Carpentry</h3>
+
+                <p>
+                    Furniture repair and carpentry
+                    services.
+                </p>
+
+                <button>
+                    Book Now
+                </button>
+
+            </div>
+
+
+            <div class="service-card"
+                onclick="selectService('Appliance Repair')">
+
+                <div class="service-icon">
+                    <i class="fa-solid fa-screwdriver-wrench"></i>
+                </div>
+
+                <h3>Appliance Repair</h3>
+
+                <p>
+                    Repair and maintenance of
+                    household appliances.
+                </p>
+
+                <button>
+                    Book Now
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= PROVIDERS ================= -->
+
+    <section class="section providers-section" id="providers">
+
+        <div class="section-title">
+
+            <p>TRUSTED PROFESSIONALS</p>
+
+            <h2>Our Service Providers</h2>
+
+            <span>
+                Choose experienced professionals for your needs
+            </span>
+
+        </div>
+
+
+        <div class="provider-grid">
+
+            <div class="provider-card">
+
+                <div class="provider-avatar">
+                    <i class="fa-solid fa-user"></i>
+                </div>
+
+                <h3>Raj Kumar</h3>
+
+                <p>Plumbing Specialist</p>
+
+                <div class="rating">
+                    ★★★★★
+                    <span>4.9</span>
+                </div>
+
+                <p class="experience">
+                    8+ years experience
+                </p>
+
+                <button
+                    onclick="selectProvider('Raj Kumar')">
+                    Select Provider
+                </button>
+
+            </div>
+
+
+            <div class="provider-card">
+
+                <div class="provider-avatar">
+                    <i class="fa-solid fa-user"></i>
+                </div>
+
+                <h3>Arun Electricals</h3>
+
+                <p>Electrical Specialist</p>
+
+                <div class="rating">
+                    ★★★★★
+                    <span>4.8</span>
+                </div>
+
+                <p class="experience">
+                    7+ years experience
+                </p>
+
+                <button
+                    onclick="selectProvider('Arun Electricals')">
+                    Select Provider
+                </button>
+
+            </div>
+
+
+            <div class="provider-card">
+
+                <div class="provider-avatar">
+                    <i class="fa-solid fa-user"></i>
+                </div>
+
+                <h3>CleanPro Team</h3>
+
+                <p>Cleaning Specialist</p>
+
+                <div class="rating">
+                    ★★★★★
+                    <span>4.7</span>
+                </div>
+
+                <p class="experience">
+                    5+ years experience
+                </p>
+
+                <button
+                    onclick="selectProvider('CleanPro Team')">
+                    Select Provider
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= BOOKING ================= -->
+
+    <section class="booking-section" id="booking">
+
+        <div class="booking-container">
+
+            <div class="section-title">
+
+                <p>BOOK YOUR SERVICE</p>
+
+                <h2>Schedule an Appointment</h2>
+
+            </div>
+
+
+            <form id="bookingForm">
+
+                <div class="form-row">
+
+                    <div class="form-group">
+
+                        <label>Service</label>
+
+                        <select id="service" required>
+
+                            <option value="">
+                                Select Service
+                            </option>
+
+                            <option value="Plumbing">
+                                Plumbing
+                            </option>
+
+                            <option value="Electrical Work">
+                                Electrical Work
+                            </option>
+
+                            <option value="Cleaning">
+                                Cleaning
+                            </option>
+
+                            <option value="Carpentry">
+                                Carpentry
+                            </option>
+
+                            <option value="Appliance Repair">
+                                Appliance Repair
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>Provider</label>
+
+                        <select id="provider" required>
+
+                            <option value="">
+                                Select Provider
+                            </option>
+
+                            <option value="Raj Kumar">
+                                Raj Kumar
+                            </option>
+
+                            <option value="Arun Electricals">
+                                Arun Electricals
+                            </option>
+
+                            <option value="CleanPro Team">
+                                CleanPro Team
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-row">
+
+                    <div class="form-group">
+
+                        <label>Date</label>
+
+                        <input
+                            type="date"
+                            id="date"
+                            required>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>Time</label>
+
+                        <input
+                            type="time"
+                            id="time"
+                            required>
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>Your Name</label>
+
+                    <input
+                        type="text"
+                        id="customerName"
+                        placeholder="Enter your name"
+                        required>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>Phone Number</label>
+
+                    <input
+                        type="tel"
+                        id="phone"
+                        placeholder="Enter phone number"
+                        required>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>Service Address</label>
+
+                    <textarea
+                        id="address"
+                        rows="4"
+                        placeholder="Enter your complete address"
+                        required></textarea>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>Problem Description</label>
+
+                    <textarea
+                        id="description"
+                        rows="3"
+                        placeholder="Describe the problem"></textarea>
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="primary-btn full-btn">
+
+                    Confirm Booking
+                    <i class="fa-solid fa-calendar-check"></i>
+
+                </button>
+
+            </form>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= BOOKINGS ================= -->
+
+    <section class="section" id="bookings">
+
+        <div class="section-title">
+
+            <p>TRACK YOUR REQUEST</p>
+
+            <h2>My Bookings</h2>
+
+        </div>
+
+
+        <div id="bookingList">
+
+            <div class="empty-booking">
+
+                <i class="fa-solid fa-calendar-xmark"></i>
+
+                <h3>No bookings yet</h3>
+
+                <p>
+                    Your bookings will appear here.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= LOGIN MODAL ================= -->
+
+    <div class="modal" id="loginModal">
+
+        <div class="modal-content">
+
+            <button
+                class="close-btn"
+                onclick="closeLogin()">
+                ×
+            </button>
+
+            <h2>Login</h2>
+
+            <p>Login to manage your bookings.</p>
+
+            <input
+                type="email"
+                id="loginEmail"
+                placeholder="Email address">
+
+            <input
+                type="password"
+                id="loginPassword"
+                placeholder="Password">
+
+            <button
+                class="primary-btn full-btn"
+                onclick="login()">
+
+                Login
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= TOAST ================= -->
+
+    <div id="toast"></div>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <div class="footer-content">
+
+            <div>
+
+                <h2>
+                    <i class="fa-solid fa-house"></i>
+                    HomeFix
+                </h2>
+
+                <p>
+                    Connecting customers with trusted
+                    home-service professionals.
+                </p>
+
+            </div>
+
+
+            <div>
+
+                <h3>Services</h3>
+
+                <p>Plumbing</p>
+                <p>Electrical Work</p>
+                <p>Cleaning</p>
+                <p>Carpentry</p>
+
+            </div>
+
+
+            <div>
+
+                <h3>Contact</h3>
+
+                <p>
+                    <i class="fa-solid fa-phone"></i>
+                    +91 98765 43210
+                </p>
+
+                <p>
+                    <i class="fa-solid fa-envelope"></i>
+                    support@homefix.com
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="copyright">
+
+            © 2026 HomeFix. All Rights Reserved.
+
+        </div>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
