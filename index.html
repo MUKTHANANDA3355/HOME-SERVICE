@@ -1,627 +1,2391 @@
+<!-- File: HOME_SERVICE_BOOKING_APP/index.html -->
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Home Service Booking</title>
+<title>HomeFix | Trusted Home Services</title>
 
-    <link rel="stylesheet" href="style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <!-- Icons -->
-    <link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<style>
+:root {
+    --primary: #007f78;
+    --primary-dark: #07534f;
+    --accent: #00b89c;
+    --light: #e9f8f5;
+    --background: #f7faf9;
+    --white: #ffffff;
+    --text: #193c3b;
+    --muted: #718582;
+    --border: #e5eeeb;
+    --shadow: 0 12px 35px rgba(20,75,68,.08);
+    --radius: 18px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--background);
+    color: var(--text);
+    line-height: 1.6;
+}
+
+button, input, select, textarea {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.container {
+    width: min(1160px, 90%);
+    margin: auto;
+}
+
+/* NAVBAR */
+
+header {
+    background: rgba(255,255,255,.97);
+    height: 78px;
+    display: flex;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid var(--border);
+}
+
+.nav-container {
+    width: min(1250px, 92%);
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.logo {
+    font-family: 'Outfit', sans-serif;
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--primary-dark);
+    letter-spacing: -.8px;
+    cursor: pointer;
+}
+
+.logo span {
+    color: var(--accent);
+}
+
+.logo-icon {
+    display: inline-grid;
+    place-items: center;
+    background: var(--light);
+    color: var(--primary);
+    width: 38px;
+    height: 38px;
+    border-radius: 12px;
+    margin-right: 7px;
+    font-size: 23px;
+}
+
+nav {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+
+nav button {
+    background: none;
+    border: none;
+    color: #48625e;
+    font-weight: 600;
+    font-size: 14px;
+    transition: .2s;
+}
+
+nav button:hover {
+    color: var(--accent);
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn {
+    border: none;
+    padding: 12px 21px;
+    border-radius: 9px;
+    background: var(--primary);
+    color: white;
+    font-weight: 700;
+    font-size: 14px;
+    transition: .25s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.btn:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+}
+
+.btn-outline {
+    background: white;
+    border: 1px solid var(--primary);
+    color: var(--primary);
+}
+
+.btn-outline:hover {
+    background: var(--light);
+    color: var(--primary-dark);
+}
+
+.btn-light {
+    background: white;
+    color: var(--primary-dark);
+}
+
+.btn-light:hover {
+    background: #e9f8f5;
+}
+
+.profile-name {
+    color: var(--primary);
+    font-weight: 700;
+    cursor: pointer;
+    display: none;
+}
+
+/* HERO */
+
+.hero {
+    background:
+        radial-gradient(circle at 85% 20%, rgba(0,184,156,.13), transparent 32%),
+        linear-gradient(120deg,#edf9f6,#f8fcfb);
+    padding: 85px 0 75px;
+    overflow: hidden;
+}
+
+.hero-content {
+    display: grid;
+    grid-template-columns: 1.1fr .9fr;
+    align-items: center;
+    gap: 55px;
+}
+
+.badge {
+    display: inline-flex;
+    background: #d9f5ed;
+    color: var(--primary);
+    padding: 8px 14px;
+    border-radius: 30px;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: .7px;
+    margin-bottom: 22px;
+}
+
+.hero h1 {
+    font-family: 'Outfit', sans-serif;
+    font-size: clamp(38px,5vw,62px);
+    line-height: 1.12;
+    letter-spacing: -2px;
+    max-width: 650px;
+    color: #123e3b;
+}
+
+.hero h1 span {
+    color: var(--primary);
+}
+
+.hero-description {
+    color: var(--muted);
+    font-size: 17px;
+    max-width: 530px;
+    margin: 22px 0 28px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 13px;
+    flex-wrap: wrap;
+}
+
+.hero-visual {
+    min-height: 390px;
+    position: relative;
+    display: grid;
+    place-items: center;
+}
+
+.hero-image {
+    width: 100%;
+    height: 390px;
+    border-radius: 28px;
+    background:
+        linear-gradient(180deg,rgba(0,0,0,.02),rgba(0,50,45,.1)),
+        url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1000') center/cover;
+    box-shadow: var(--shadow);
+}
+
+.floating-card {
+    position: absolute;
+    background: white;
+    padding: 15px 19px;
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.floating-card.one {
+    left: -25px;
+    top: 35px;
+}
+
+.floating-card.two {
+    right: -20px;
+    bottom: 35px;
+}
+
+.float-icon {
+    width: 43px;
+    height: 43px;
+    background: var(--light);
+    display: grid;
+    place-items: center;
+    border-radius: 12px;
+    font-size: 21px;
+}
+
+.floating-card strong {
+    display: block;
+    font-size: 14px;
+}
+
+.floating-card small {
+    color: var(--muted);
+    font-size: 11px;
+}
+
+/* SEARCH */
+
+.search-section {
+    margin-top: -35px;
+    position: relative;
+    z-index: 2;
+}
+
+.search-box {
+    background: white;
+    padding: 19px;
+    border-radius: 17px;
+    box-shadow: 0 15px 40px rgba(15,75,65,.12);
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.search-icon {
+    font-size: 23px;
+    padding: 0 8px;
+}
+
+.search-box input {
+    border: none;
+    outline: none;
+    flex: 1;
+    min-width: 0;
+    padding: 10px;
+    font-size: 15px;
+}
+
+.search-box .btn {
+    white-space: nowrap;
+}
+
+.search-result {
+    margin-top: 15px;
+    padding: 15px;
+    border-radius: 12px;
+    background: white;
+    box-shadow: var(--shadow);
+}
+
+/* TRUST */
+
+.trust-bar {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 15px;
+    padding: 35px 0;
+    margin-top: 10px;
+    border-bottom: 1px solid var(--border);
+}
+
+.trust-item {
+    text-align: center;
+}
+
+.trust-item strong {
+    display: block;
+    font-family: 'Outfit',sans-serif;
+    font-size: 25px;
+    color: var(--primary);
+}
+
+.trust-item span {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+/* COMMON SECTION */
+
+.section {
+    padding: 78px 0;
+}
+
+.section-heading {
+    text-align: center;
+    max-width: 650px;
+    margin: auto;
+}
+
+.section-label {
+    color: var(--accent);
+    font-size: 12px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.section-heading h2 {
+    font-family: 'Outfit',sans-serif;
+    font-size: 37px;
+    margin: 10px 0;
+    letter-spacing: -1px;
+}
+
+.section-heading p {
+    color: var(--muted);
+    font-size: 15px;
+}
+
+/* SERVICE CARDS */
+
+.service-grid {
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    gap: 19px;
+    margin-top: 40px;
+}
+
+.service-card {
+    background: white;
+    padding: 28px 17px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    border: 1px solid transparent;
+    text-align: center;
+    transition: .25s;
+}
+
+.service-card:hover {
+    transform: translateY(-7px);
+    border-color: #a9e8dc;
+}
+
+.service-icon {
+    width: 75px;
+    height: 75px;
+    display: grid;
+    place-items: center;
+    margin: 0 auto 18px;
+    border-radius: 22px;
+    background: var(--light);
+    font-size: 34px;
+}
+
+.service-card h3 {
+    font-family: 'Outfit',sans-serif;
+    font-size: 17px;
+    margin-bottom: 7px;
+}
+
+.service-card p {
+    font-size: 12px;
+    color: var(--muted);
+    min-height: 40px;
+}
+
+.service-card .price {
+    font-size: 13px;
+    color: var(--primary);
+    font-weight: 800;
+    margin: 12px 0;
+}
+
+.text-button {
+    background: none;
+    border: none;
+    color: var(--primary);
+    font-weight: 800;
+    font-size: 13px;
+}
+
+/* WHY CHOOSE US */
+
+.why-section {
+    background: #eaf7f4;
+}
+
+.why-grid {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 23px;
+    margin-top: 38px;
+}
+
+.why-card {
+    background: white;
+    border-radius: 17px;
+    padding: 28px;
+}
+
+.why-card .service-icon {
+    margin-left: 0;
+    width: 60px;
+    height: 60px;
+    font-size: 26px;
+    border-radius: 17px;
+}
+
+.why-card h3 {
+    font-family: 'Outfit',sans-serif;
+    margin-bottom: 9px;
+}
+
+.why-card p {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+/* PROVIDERS */
+
+.provider-grid {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 23px;
+    margin-top: 38px;
+}
+
+.provider-card {
+    background: white;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: .25s;
+}
+
+.provider-card:hover {
+    transform: translateY(-5px);
+}
+
+.provider-cover {
+    height: 110px;
+    background: linear-gradient(120deg,#087d75,#27c7aa);
+}
+
+.provider-content {
+    padding: 0 23px 24px;
+    margin-top: -40px;
+}
+
+.provider-avatar {
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    background: #e0f7f0;
+    border: 4px solid white;
+    display: grid;
+    place-items: center;
+    font-size: 32px;
+    margin-bottom: 12px;
+}
+
+.provider-content h3 {
+    font-family: 'Outfit',sans-serif;
+}
+
+.provider-content p {
+    color: var(--muted);
+    font-size: 13px;
+    margin: 5px 0;
+}
+
+.rating {
+    color: #f4a623;
+    font-weight: 800;
+    margin: 10px 0;
+}
+
+.provider-content .btn {
+    margin-top: 12px;
+    width: 100%;
+}
+
+/* HOW IT WORKS */
+
+.steps-grid {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 25px;
+    margin-top: 45px;
+}
+
+.step {
+    text-align: center;
+}
+
+.step-number {
+    width: 65px;
+    height: 65px;
+    display: grid;
+    place-items: center;
+    margin: auto auto 18px;
+    background: var(--light);
+    border-radius: 50%;
+    color: var(--primary);
+    font-size: 25px;
+    font-weight: 800;
+}
+
+.step h3 {
+    font-family: 'Outfit',sans-serif;
+    margin-bottom: 8px;
+}
+
+.step p {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+/* TESTIMONIALS */
+
+.review-section {
+    background: #f0f8f6;
+}
+
+.review-grid {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 22px;
+    margin-top: 38px;
+}
+
+.review-card {
+    background: white;
+    padding: 27px;
+    border-radius: 17px;
+    box-shadow: var(--shadow);
+}
+
+.review-stars {
+    color: #f4a623;
+    letter-spacing: 3px;
+    margin-bottom: 14px;
+}
+
+.review-card p {
+    color: #536b66;
+    font-size: 14px;
+    margin-bottom: 18px;
+}
+
+.review-card strong {
+    font-size: 14px;
+}
+
+/* CTA */
+
+.cta {
+    background: linear-gradient(120deg,#07534f,#009d8d);
+    border-radius: 25px;
+    padding: 48px;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 25px;
+    margin: 65px auto;
+}
+
+.cta h2 {
+    font-family: 'Outfit',sans-serif;
+    font-size: 32px;
+}
+
+.cta p {
+    opacity: .85;
+    margin-top: 8px;
+}
+
+/* FOOTER */
+
+footer {
+    background: #073b39;
+    color: white;
+    padding: 55px 0 20px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 35px;
+    margin-bottom: 40px;
+}
+
+.footer-brand {
+    font-family: 'Outfit',sans-serif;
+    font-size: 28px;
+    font-weight: 800;
+    margin-bottom: 13px;
+}
+
+.footer-grid p {
+    color: #b5d1cb;
+    font-size: 13px;
+    max-width: 300px;
+}
+
+.footer-grid h4 {
+    margin-bottom: 15px;
+}
+
+.footer-grid a {
+    display: block;
+    color: #b5d1cb;
+    font-size: 13px;
+    margin: 9px 0;
+}
+
+.footer-grid a:hover {
+    color: white;
+}
+
+.copyright {
+    border-top: 1px solid #285b55;
+    padding-top: 20px;
+    text-align: center;
+    color: #b5d1cb;
+    font-size: 12px;
+}
+
+/* INNER PAGES */
+
+.page {
+    min-height: 65vh;
+}
+
+.page-header {
+    padding: 55px 0 15px;
+    text-align: center;
+}
+
+.page-header h1 {
+    font-family: 'Outfit',sans-serif;
+    font-size: 37px;
+}
+
+.page-header p {
+    color: var(--muted);
+}
+
+.panel {
+    background: white;
+    padding: 30px;
+    border-radius: 18px;
+    box-shadow: var(--shadow);
+    margin: 30px auto;
+    max-width: 900px;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    margin-bottom: 15px;
+}
+
+.field label {
+    font-weight: 700;
+    font-size: 13px;
+}
+
+input,select,textarea {
+    width: 100%;
+    border: 1px solid #d9e6e2;
+    padding: 13px;
+    border-radius: 9px;
+    outline: none;
+    background: white;
+    color: var(--text);
+}
+
+input:focus,select:focus,textarea:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px #00b89c18;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.full {
+    grid-column: 1/-1;
+}
+
+.notice {
+    padding: 14px;
+    background: var(--light);
+    color: var(--primary-dark);
+    border-radius: 10px;
+    margin-bottom: 18px;
+    font-size: 13px;
+}
+
+.message {
+    margin-top: 12px;
+    font-size: 13px;
+    color: #c0392b;
+}
+
+.success {
+    color: #16834b;
+}
+
+.booking-row {
+    padding: 20px;
+    border: 1px solid var(--border);
+    border-radius: 13px;
+    margin: 14px 0;
+    background: #fff;
+}
+
+.booking-row p {
+    color: var(--muted);
+    font-size: 13px;
+    margin-top: 6px;
+    overflow-wrap: anywhere;
+}
+
+.status {
+    display: inline-block;
+    background: #fff3d9;
+    color: #946200;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 800;
+}
+
+.empty {
+    text-align: center;
+    padding: 35px;
+    color: var(--muted);
+}
+
+/* 1. CSS: make room for 4 stat cards */
+.stat-grid {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 15px;
+    margin: 25px 0;
+}
+
+.stat-card {
+    background: var(--light);
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.stat-card strong {
+    display: block;
+    font-family: 'Outfit',sans-serif;
+    font-size: 28px;
+    color: var(--primary);
+}
+
+.booking-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.accept {
+    background: #16834b;
+}
+
+.reject {
+    background: #bd3434;
+}
+
+/* MODAL */
+
+.modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,30,28,.65);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 18px;
+    z-index: 200;
+}
+
+.modal {
+    background: white;
+    border-radius: 19px;
+    width: min(450px,100%);
+    padding: 30px;
+    position: relative;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.modal h2 {
+    font-family: 'Outfit',sans-serif;
+    margin-bottom: 7px;
+}
+
+.modal-subtitle {
+    color: var(--muted);
+    font-size: 13px;
+    margin-bottom: 22px;
+}
+
+.close {
+    position: absolute;
+    right: 17px;
+    top: 12px;
+    background: none;
+    border: none;
+    font-size: 27px;
+    color: var(--muted);
+}
+
+.switch {
+    text-align: center;
+    color: var(--muted);
+    font-size: 13px;
+    margin-top: 18px;
+}
+
+.switch button {
+    background: none;
+    border: none;
+    color: var(--primary);
+    font-weight: 800;
+}
+
+.role-tabs {
+    display: flex;
+    gap: 10px;
+    margin: 18px 0;
+}
+
+.role-tabs button {
+    flex: 1;
+}
+
+.toast {
+    position: fixed;
+    right: 22px;
+    bottom: 22px;
+    background: #07534f;
+    color: white;
+    padding: 15px 22px;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    z-index: 300;
+    opacity: 0;
+    transform: translateY(15px);
+    transition: .3s;
+    pointer-events: none;
+}
+
+.toast.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* RESPONSIVE */
+
+@media(max-width:950px) {
+    .service-grid {
+        grid-template-columns: repeat(3,1fr);
+    }
+
+    .hero-content {
+        gap: 30px;
+    }
+
+    nav {
+        gap: 16px;
+    }
+}
+
+@media(max-width:760px) {
+    header {
+        height: auto;
+        padding: 15px 0;
+    }
+
+    .nav-container {
+        flex-wrap: wrap;
+    }
+
+    nav {
+        order: 3;
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 17px;
+    }
+
+    .nav-actions {
+        gap: 6px;
+    }
+
+    .nav-actions .btn {
+        padding: 9px 12px;
+        font-size: 12px;
+    }
+
+    .hero {
+        padding: 55px 0 65px;
+    }
+
+    .hero-content {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-visual {
+        min-height: 280px;
+    }
+
+    .hero-image {
+        height: 280px;
+    }
+
+    .floating-card.one {
+        left: 0;
+    }
+
+    .floating-card.two {
+        right: 0;
+    }
+
+    .trust-bar {
+        grid-template-columns: repeat(2,1fr);
+    }
+
+    .service-grid {
+        grid-template-columns: repeat(2,1fr);
+    }
+
+    .why-grid,.provider-grid,.review-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .steps-grid {
+        grid-template-columns: repeat(2,1fr);
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .cta {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 32px;
+    }
+}
+
+@media(max-width:480px) {
+    .logo {
+        font-size: 23px;
+    }
+
+    .nav-actions .btn-outline {
+        display: none;
+    }
+
+    .hero h1 {
+        font-size: 39px;
+    }
+
+    .hero-description {
+        font-size: 15px;
+    }
+
+    .search-box {
+        flex-wrap: wrap;
+    }
+
+    .search-box input {
+        flex-basis: 75%;
+    }
+
+    .search-box .btn {
+        width: 100%;
+    }
+
+    .section {
+        padding: 55px 0;
+    }
+
+    .section-heading h2 {
+        font-size: 29px;
+    }
+
+    .service-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+    }
+
+    .service-card {
+        padding: 22px 12px;
+    }
+
+    .why-grid,.provider-grid,.review-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .steps-grid {
+        gap: 20px 10px;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .full {
+        grid-column: auto;
+    }
+
+    .panel {
+        padding: 20px;
+    }
+
+    .stat-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .cta h2 {
+        font-size: 27px;
+    }
+}
+</style>
 </head>
 
 <body>
 
-    <!-- ================= NAVBAR ================= -->
+<!-- NAVIGATION -->
 
-    <header class="navbar">
+<header>
+    <div class="nav-container">
 
-        <div class="logo">
-            <i class="fa-solid fa-house"></i>
-            HomeFix
+        <div class="logo" onclick="showPage('home')">
+            <span class="logo-icon">⌂</span>Home<span>Fix</span>
         </div>
 
         <nav>
-            <a href="#home">Home</a>
-            <a href="#services">Services</a>
-            <a href="#providers">Providers</a>
-            <a href="#bookings">My Bookings</a>
+            <button onclick="showPage('home')">Home</button>
+            <button onclick="showPage('services')">Services</button>
+            <button onclick="showPage('providers')">Professionals</button>
+            <button onclick="showPage('bookings')">My Bookings</button>
         </nav>
 
-        <div class="nav-right">
-            <button class="login-btn" onclick="openLogin()">
-                <i class="fa-solid fa-user"></i>
-                Login
+        <div class="nav-actions">
+            <span id="profileName" class="profile-name"></span>
+            <button id="loginTop" class="btn btn-outline" onclick="openAuth('login')">Login</button>
+            <button id="signupTop" class="btn" onclick="openAuth('signup')">Sign Up</button>
+            <button id="logoutTop" class="btn btn-outline hidden" onclick="logout()">Logout</button>
+        </div>
+
+    </div>
+</header>
+
+
+<!-- HOME PAGE -->
+
+<main>
+
+<section id="home" class="page">
+
+    <section class="hero">
+        <div class="container hero-content">
+
+            <div>
+                <div class="badge">✦ YOUR HOME, OUR RESPONSIBILITY</div>
+
+                <h1>
+                    Trusted Home Services,
+                    <span>Just One Click Away.</span>
+                </h1>
+
+                <p class="hero-description">
+                    Find skilled and reliable professionals for all your home needs.
+                    From plumbing to cleaning, book quality services without the hassle.
+                </p>
+
+                <div class="hero-buttons">
+                    <button class="btn" onclick="showPage('services')">
+                        Explore Services →
+                    </button>
+
+                    <button class="btn btn-outline" onclick="showPage('providers')">
+                        Meet Our Professionals
+                    </button>
+                </div>
+            </div>
+
+            <div class="hero-visual">
+
+                <div class="hero-image"></div>
+
+                <div class="floating-card one">
+                    <div class="float-icon">🛠️</div>
+                    <div>
+                        <strong>Expert Professionals</strong>
+                        <small>Skilled service providers</small>
+                    </div>
+                </div>
+
+                <div class="floating-card two">
+                    <div class="float-icon">⭐</div>
+                    <div>
+                        <strong>Quality Service</strong>
+                        <small>Customer-focused experience</small>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- SMART SEARCH -->
+
+    <section class="container search-section">
+
+        <div class="search-box">
+            <div class="search-icon">🔍</div>
+
+            <input
+                type="search"
+                id="smartSearch"
+                placeholder="What service do you need? Try 'tap leakage' or 'AC repair'"
+                aria-label="Search home services"
+            >
+
+            <button class="btn" onclick="searchService()">Search Services</button>
+        </div>
+
+        <div id="searchResult" class="search-result hidden"></div>
+
+    </section>
+
+
+    <!-- TRUST STATISTICS -->
+
+    <section class="container trust-bar">
+
+        <div class="trust-item">
+            <strong>5+</strong>
+            <span>Service Categories</span>
+        </div>
+
+        <div class="trust-item">
+            <strong>24/7</strong>
+            <span>Online Booking Access</span>
+        </div>
+
+        <div class="trust-item">
+            <strong>100%</strong>
+            <span>Customer Focused</span>
+        </div>
+
+        <div class="trust-item">
+            <strong>Easy</strong>
+            <span>Booking Experience</span>
+        </div>
+
+    </section>
+
+
+    <!-- SERVICE CATEGORIES -->
+
+    <section class="section container">
+
+        <div class="section-heading">
+            <div class="section-label">What we offer</div>
+            <h2>Explore Our Services</h2>
+            <p>Everything your home needs, all in one place.</p>
+        </div>
+
+        <div class="service-grid" id="serviceGrid"></div>
+
+    </section>
+
+
+    <!-- WHY CHOOSE US -->
+
+    <section class="section why-section">
+
+        <div class="container">
+
+            <div class="section-heading">
+                <div class="section-label">Why HomeFix?</div>
+                <h2>Home Services You Can Count On</h2>
+                <p>We make finding and booking home professionals easier.</p>
+            </div>
+
+            <div class="why-grid">
+
+                <div class="why-card">
+                    <div class="service-icon">🛡️</div>
+                    <h3>Trusted Professionals</h3>
+                    <p>Choose service providers based on their experience, service category and customer ratings.</p>
+                </div>
+
+                <div class="why-card">
+                    <div class="service-icon">📅</div>
+                    <h3>Easy Scheduling</h3>
+                    <p>Select a convenient date and time to request your required home service.</p>
+                </div>
+
+                <div class="why-card">
+                    <div class="service-icon">💰</div>
+                    <h3>Clear Pricing</h3>
+                    <p>View starting prices before booking. Final charges can be confirmed after inspection.</p>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- FEATURED PROFESSIONALS -->
+
+    <section class="section container">
+
+        <div class="section-heading">
+            <div class="section-label">Meet the experts</div>
+            <h2>Featured Professionals</h2>
+            <p>Explore our sample professionals and their service specialities.</p>
+        </div>
+
+        <div class="provider-grid" id="providerGrid"></div>
+
+        <div style="text-align:center;margin-top:30px">
+            <button class="btn btn-outline" onclick="showPage('providers')">
+                View All Professionals →
             </button>
         </div>
 
-    </header>
+    </section>
 
 
-    <!-- ================= HERO ================= -->
+    <!-- HOW IT WORKS -->
 
-    <section class="hero" id="home">
+    <section class="section why-section">
 
-        <div class="hero-content">
+        <div class="container">
 
-            <h1>
-                Reliable Home Services
-                <span>At Your Doorstep</span>
-            </h1>
+            <div class="section-heading">
+                <div class="section-label">Simple process</div>
+                <h2>How HomeFix Works</h2>
+                <p>Get the service you need in four simple steps.</p>
+            </div>
 
-            <p>
-                Find trusted professionals and book home services
-                quickly and conveniently.
-            </p>
+            <div class="steps-grid">
 
-            <button class="primary-btn" onclick="scrollToServices()">
-                Book a Service
-                <i class="fa-solid fa-arrow-right"></i>
+                <div class="step">
+                    <div class="step-number">01</div>
+                    <h3>Choose Service</h3>
+                    <p>Select the service category that matches your home problem.</p>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">02</div>
+                    <h3>Select Professional</h3>
+                    <p>Choose a suitable service provider.</p>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">03</div>
+                    <h3>Book Appointment</h3>
+                    <p>Enter your address, date and preferred time.</p>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">04</div>
+                    <h3>Get Your Service</h3>
+                    <p>Track your booking status and receive the requested service.</p>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- CUSTOMER REVIEWS -->
+
+    <section class="section review-section">
+
+        <div class="container">
+
+            <div class="section-heading">
+                <div class="section-label">Customer feedback</div>
+                <h2>What Customers Say</h2>
+                <p>Sample testimonials showing how customer reviews will appear.</p>
+            </div>
+
+            <div class="review-grid">
+
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p>"The booking process was simple and easy to understand. I could select the service and request an appointment quickly."</p>
+                    <strong>Priya S.</strong>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p>"Having different home services in one place makes it easier to find the right professional."</p>
+                    <strong>Rahul K.</strong>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p>"The website is easy to navigate, and the appointment details are clearly displayed."</p>
+                    <strong>Ananya R.</strong>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- CALL TO ACTION -->
+
+    <section class="container">
+
+        <div class="cta">
+            <div>
+                <h2>Your Home Deserves the Best Care.</h2>
+                <p>Find a suitable professional and request your service today.</p>
+            </div>
+
+            <button class="btn btn-light" onclick="showPage('services')">
+                Book a Service →
             </button>
-
-        </div>
-
-        <div class="hero-image">
-            <i class="fa-solid fa-house-chimney"></i>
         </div>
 
     </section>
 
-
-    <!-- ================= SERVICES ================= -->
-
-    <section class="section" id="services">
-
-        <div class="section-title">
-
-            <p>OUR SERVICES</p>
-
-            <h2>Choose a Service</h2>
-
-            <span>
-                Professional services for your home
-            </span>
-
-        </div>
+</section>
 
 
-        <div class="service-grid">
+<!-- SERVICES PAGE -->
 
-            <div class="service-card"
-                onclick="selectService('Plumbing')">
+<section id="services" class="page hidden">
 
-                <div class="service-icon">
-                    <i class="fa-solid fa-wrench"></i>
-                </div>
+    <div class="page-header">
+        <div class="section-label">Our services</div>
+        <h1>Choose Your Service</h1>
+        <p>Find the right professional for your home.</p>
+    </div>
 
-                <h3>Plumbing</h3>
+    <div class="container">
+        <div class="service-grid" id="allServicesGrid"></div>
+    </div>
 
-                <p>
-                    Pipe repair, leakage fixing and
-                    plumbing services.
-                </p>
+</section>
 
-                <button>
-                    Book Now
-                </button>
 
+<!-- PROVIDERS PAGE -->
+
+<section id="providers" class="page hidden">
+
+    <div class="page-header">
+        <div class="section-label">Our professionals</div>
+        <h1>Find Your Service Provider</h1>
+        <p>Explore professionals by their service specialities.</p>
+    </div>
+
+    <div class="container">
+        <div class="provider-grid" id="allProvidersGrid"></div>
+    </div>
+
+</section>
+
+
+<!-- APPOINTMENT PAGE -->
+
+<section id="appointment" class="page hidden">
+
+    <div class="page-header">
+        <div class="section-label">Book a service</div>
+        <h1>Schedule Your Appointment</h1>
+        <p>Provide your details to request a home service.</p>
+    </div>
+
+    <div class="container">
+
+        <div class="panel">
+
+            <div class="notice">
+                Your booking will initially be marked as Pending until the selected provider responds.
+                The displayed price is an estimate; the final amount may change after inspection.
             </div>
-
-
-            <div class="service-card"
-                onclick="selectService('Electrical Work')">
-
-                <div class="service-icon">
-                    <i class="fa-solid fa-bolt"></i>
-                </div>
-
-                <h3>Electrical Work</h3>
-
-                <p>
-                    Wiring, switches, lights and
-                    electrical repairs.
-                </p>
-
-                <button>
-                    Book Now
-                </button>
-
-            </div>
-
-
-            <div class="service-card"
-                onclick="selectService('Cleaning')">
-
-                <div class="service-icon">
-                    <i class="fa-solid fa-broom"></i>
-                </div>
-
-                <h3>Cleaning</h3>
-
-                <p>
-                    Professional home and deep
-                    cleaning services.
-                </p>
-
-                <button>
-                    Book Now
-                </button>
-
-            </div>
-
-
-            <div class="service-card"
-                onclick="selectService('Carpentry')">
-
-                <div class="service-icon">
-                    <i class="fa-solid fa-hammer"></i>
-                </div>
-
-                <h3>Carpentry</h3>
-
-                <p>
-                    Furniture repair and carpentry
-                    services.
-                </p>
-
-                <button>
-                    Book Now
-                </button>
-
-            </div>
-
-
-            <div class="service-card"
-                onclick="selectService('Appliance Repair')">
-
-                <div class="service-icon">
-                    <i class="fa-solid fa-screwdriver-wrench"></i>
-                </div>
-
-                <h3>Appliance Repair</h3>
-
-                <p>
-                    Repair and maintenance of
-                    household appliances.
-                </p>
-
-                <button>
-                    Book Now
-                </button>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- ================= PROVIDERS ================= -->
-
-    <section class="section providers-section" id="providers">
-
-        <div class="section-title">
-
-            <p>TRUSTED PROFESSIONALS</p>
-
-            <h2>Our Service Providers</h2>
-
-            <span>
-                Choose experienced professionals for your needs
-            </span>
-
-        </div>
-
-
-        <div class="provider-grid">
-
-            <div class="provider-card">
-
-                <div class="provider-avatar">
-                    <i class="fa-solid fa-user"></i>
-                </div>
-
-                <h3>Raj Kumar</h3>
-
-                <p>Plumbing Specialist</p>
-
-                <div class="rating">
-                    ★★★★★
-                    <span>4.9</span>
-                </div>
-
-                <p class="experience">
-                    8+ years experience
-                </p>
-
-                <button
-                    onclick="selectProvider('Raj Kumar')">
-                    Select Provider
-                </button>
-
-            </div>
-
-
-            <div class="provider-card">
-
-                <div class="provider-avatar">
-                    <i class="fa-solid fa-user"></i>
-                </div>
-
-                <h3>Arun Electricals</h3>
-
-                <p>Electrical Specialist</p>
-
-                <div class="rating">
-                    ★★★★★
-                    <span>4.8</span>
-                </div>
-
-                <p class="experience">
-                    7+ years experience
-                </p>
-
-                <button
-                    onclick="selectProvider('Arun Electricals')">
-                    Select Provider
-                </button>
-
-            </div>
-
-
-            <div class="provider-card">
-
-                <div class="provider-avatar">
-                    <i class="fa-solid fa-user"></i>
-                </div>
-
-                <h3>CleanPro Team</h3>
-
-                <p>Cleaning Specialist</p>
-
-                <div class="rating">
-                    ★★★★★
-                    <span>4.7</span>
-                </div>
-
-                <p class="experience">
-                    5+ years experience
-                </p>
-
-                <button
-                    onclick="selectProvider('CleanPro Team')">
-                    Select Provider
-                </button>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- ================= BOOKING ================= -->
-
-    <section class="booking-section" id="booking">
-
-        <div class="booking-container">
-
-            <div class="section-title">
-
-                <p>BOOK YOUR SERVICE</p>
-
-                <h2>Schedule an Appointment</h2>
-
-            </div>
-
 
             <form id="bookingForm">
 
-                <div class="form-row">
+                <div class="form-grid">
 
-                    <div class="form-group">
-
-                        <label>Service</label>
-
-                        <select id="service" required>
-
-                            <option value="">
-                                Select Service
-                            </option>
-
-                            <option value="Plumbing">
-                                Plumbing
-                            </option>
-
-                            <option value="Electrical Work">
-                                Electrical Work
-                            </option>
-
-                            <option value="Cleaning">
-                                Cleaning
-                            </option>
-
-                            <option value="Carpentry">
-                                Carpentry
-                            </option>
-
-                            <option value="Appliance Repair">
-                                Appliance Repair
-                            </option>
-
-                        </select>
-
+                    <div class="field">
+                        <label for="serviceSelect">Service Category *</label>
+                        <select id="serviceSelect" required></select>
                     </div>
 
+                    <!-- 2. HTML: specific service field right after serviceSelect -->
+                    <div class="field">
+                        <label for="subServiceSelect">Specific Service *</label>
+                        <select id="subServiceSelect" required></select>
+                    </div>
 
-                    <div class="form-group">
+                    <div class="field">
+                        <label for="providerSelect">Service Provider *</label>
+                        <select id="providerSelect" required></select>
+                    </div>
 
-                        <label>Provider</label>
+                    <div class="field">
+                        <label for="bookingDate">Appointment Date *</label>
+                        <input id="bookingDate" type="date" required>
+                    </div>
 
-                        <select id="provider" required>
+                    <div class="field">
+                        <label for="bookingTime">Preferred Time *</label>
+                        <input id="bookingTime" type="time" required>
+                    </div>
 
-                            <option value="">
-                                Select Provider
-                            </option>
+                    <div class="field">
+                        <label for="customerName">Full Name *</label>
+                        <input id="customerName" required minlength="3" placeholder="Enter your name">
+                    </div>
 
-                            <option value="Raj Kumar">
-                                Raj Kumar
-                            </option>
+                    <div class="field">
+                        <label for="customerPhone">Phone Number *</label>
+                        <input id="customerPhone" required inputmode="numeric" pattern="[0-9]{10}" maxlength="10" placeholder="10-digit phone number">
+                    </div>
 
-                            <option value="Arun Electricals">
-                                Arun Electricals
-                            </option>
+                    <div class="field full">
+                        <label for="address">Complete Service Address *</label>
+                        <input id="address" required minlength="8" placeholder="House number, street, area and city">
+                    </div>
 
-                            <option value="CleanPro Team">
-                                CleanPro Team
-                            </option>
-
-                        </select>
-
+                    <div class="field full">
+                        <label for="description">Describe Your Problem</label>
+                        <textarea id="description" maxlength="1000" placeholder="Explain what needs to be repaired, installed or cleaned..."></textarea>
                     </div>
 
                 </div>
 
-
-                <div class="form-row">
-
-                    <div class="form-group">
-
-                        <label>Date</label>
-
-                        <input
-                            type="date"
-                            id="date"
-                            required>
-
-                    </div>
-
-
-                    <div class="form-group">
-
-                        <label>Time</label>
-
-                        <input
-                            type="time"
-                            id="time"
-                            required>
-
-                    </div>
-
+                <div id="priceEstimate" class="notice">
+                    Select a service to view its starting price.
                 </div>
 
+                <button class="btn" type="submit">Confirm Booking →</button>
 
-                <div class="form-group">
-
-                    <label>Your Name</label>
-
-                    <input
-                        type="text"
-                        id="customerName"
-                        placeholder="Enter your name"
-                        required>
-
-                </div>
-
-
-                <div class="form-group">
-
-                    <label>Phone Number</label>
-
-                    <input
-                        type="tel"
-                        id="phone"
-                        placeholder="Enter phone number"
-                        required>
-
-                </div>
-
-
-                <div class="form-group">
-
-                    <label>Service Address</label>
-
-                    <textarea
-                        id="address"
-                        rows="4"
-                        placeholder="Enter your complete address"
-                        required></textarea>
-
-                </div>
-
-
-                <div class="form-group">
-
-                    <label>Problem Description</label>
-
-                    <textarea
-                        id="description"
-                        rows="3"
-                        placeholder="Describe the problem"></textarea>
-
-                </div>
-
-
-                <button
-                    type="submit"
-                    class="primary-btn full-btn">
-
-                    Confirm Booking
-                    <i class="fa-solid fa-calendar-check"></i>
-
-                </button>
+                <p id="bookingMsg" class="message"></p>
 
             </form>
 
         </div>
 
-    </section>
+    </div>
+
+</section>
 
 
-    <!-- ================= BOOKINGS ================= -->
+<!-- CUSTOMER BOOKINGS -->
 
-    <section class="section" id="bookings">
+<section id="bookings" class="page hidden">
 
-        <div class="section-title">
+    <div class="page-header">
+        <div class="section-label">Your activity</div>
+        <h1>My Bookings</h1>
+        <p>View and manage your service requests.</p>
+    </div>
 
-            <p>TRACK YOUR REQUEST</p>
+    <div class="container">
+        <div class="panel" id="bookingList"></div>
+    </div>
 
-            <h2>My Bookings</h2>
+</section>
 
+
+<!-- CUSTOMER PROFILE -->
+
+<section id="profile" class="page hidden">
+
+    <div class="page-header">
+        <div class="section-label">Your account</div>
+        <h1>My Profile</h1>
+    </div>
+
+    <div class="container">
+        <div class="panel" id="profileDetails"></div>
+    </div>
+
+</section>
+
+
+<!-- PROVIDER DASHBOARD -->
+
+<section id="providerDashboard" class="page hidden">
+
+    <div class="page-header">
+        <div class="section-label">Provider workspace</div>
+        <h1>Provider Dashboard</h1>
+        <p>Manage your customer appointment requests.</p>
+    </div>
+
+    <div class="container">
+        <div class="panel">
+            <p id="providerWelcome" class="notice"></p>
+            <div id="providerStats" class="stat-grid"></div>
+            <div id="providerAppointments"></div>
+        </div>
+    </div>
+
+</section>
+
+</main>
+
+
+<!-- FOOTER -->
+
+<footer>
+    <div class="container">
+        <div class="footer-grid">
+            <div>
+                <div class="footer-brand">Home<span>Fix</span></div>
+                <p>Trusted home services at your fingertips. Book skilled professionals easily and reliably.</p>
+            </div>
+            <div>
+                <h4>Quick Links</h4>
+                <a href="#" onclick="event.preventDefault();showPage('home')">Home</a>
+                <a href="#" onclick="event.preventDefault();showPage('services')">Services</a>
+                <a href="#" onclick="event.preventDefault();showPage('providers')">Professionals</a>
+                <a href="#" onclick="event.preventDefault();showPage('bookings')">My Bookings</a>
+            </div>
+            <div>
+                <h4>Services</h4>
+                <a href="#" onclick="event.preventDefault();bookService('Plumbing')">Plumbing</a>
+                <a href="#" onclick="event.preventDefault();bookService('Electrical')">Electrical</a>
+                <a href="#" onclick="event.preventDefault();bookService('Cleaning')">Cleaning</a>
+                <a href="#" onclick="event.preventDefault();bookService('AC Repair')">AC Repair</a>
+            </div>
+            <div>
+                <h4>Support</h4>
+                <a href="#" onclick="event.preventDefault();openAuth('login')">Login</a>
+                <a href="#" onclick="event.preventDefault();openAuth('signup')">Sign Up</a>
+            </div>
+        </div>
+        <div class="copyright">© HomeFix. All rights reserved.</div>
+    </div>
+</footer>
+
+
+<!-- AUTH MODAL -->
+
+<div id="authBackdrop" class="modal-backdrop">
+    <div class="modal">
+        <button class="close" onclick="closeAuth()" aria-label="Close modal">&times;</button>
+
+        <!-- SIGN UP -->
+        <div id="signupBox" class="hidden">
+            <h2>Create Account</h2>
+            <p class="modal-subtitle">Sign up to book and manage your home services.</p>
+            <form id="signupForm">
+                <div class="field">
+                    <label for="sName">Full Name *</label>
+                    <input id="sName" required minlength="3" maxlength="60">
+                </div>
+                <div class="field">
+                    <label for="sUsername">Username *</label>
+                    <input id="sUsername" required minlength="4" maxlength="20" placeholder="letters, numbers, underscore">
+                </div>
+                <div class="field">
+                    <label for="sPhone">Phone Number *</label>
+                    <input id="sPhone" required inputmode="numeric" pattern="[0-9]{10}" maxlength="10">
+                </div>
+                <div class="field">
+                    <label for="sPassword">Password *</label>
+                    <input id="sPassword" type="password" required minlength="6" maxlength="100">
+                </div>
+                <button class="btn" style="width:100%" type="submit">Create Account</button>
+                <p id="signupMsg" class="message"></p>
+            </form>
+            <div class="switch">
+                Already have an account?
+                <button onclick="openAuth('login')">Login</button>
+            </div>
         </div>
 
+        <!-- LOGIN -->
+        <div id="loginBox" class="hidden">
+            <h2>Welcome Back</h2>
+            <p class="modal-subtitle">Login to access your HomeFix account.</p>
 
-        <div id="bookingList">
-
-            <div class="empty-booking">
-
-                <i class="fa-solid fa-calendar-xmark"></i>
-
-                <h3>No bookings yet</h3>
-
-                <p>
-                    Your bookings will appear here.
-                </p>
-
+            <div class="role-tabs">
+                <button type="button" id="roleCustomer" class="btn" onclick="setLoginRole('customer')">Customer</button>
+                <button type="button" id="roleProvider" class="btn btn-outline" onclick="setLoginRole('provider')">Provider</button>
             </div>
 
+            <form id="loginForm">
+                <div class="field">
+                    <label for="lUsername">Username *</label>
+                    <input id="lUsername" required>
+                </div>
+                <div class="field">
+                    <label for="lPassword">Password *</label>
+                    <input id="lPassword" type="password" required>
+                </div>
+                <button class="btn" style="width:100%" type="submit">Login</button>
+                <p id="loginMsg" class="message"></p>
+            </form>
+
+            <div id="providerDemoInfo" class="notice hidden" style="margin-top:16px;margin-bottom:0">
+                Demo providers: username <strong>ramesh_plumb</strong>, <strong>suresh_elec</strong>, or <strong>meena_clean</strong> with password <strong>123456</strong>.
+            </div>
+
+            <!-- 2. HTML: provider signup switch right after providerDemoInfo -->
+            <div id="providerSignupSwitch" class="switch hidden">
+                New provider?
+                <button onclick="openAuth('providerSignup')">Create Provider Account</button>
+            </div>
+
+            <div class="switch">
+                Don't have an account?
+                <button onclick="openAuth('signup')">Sign Up</button>
+            </div>
         </div>
 
-    </section>
-
-
-    <!-- ================= LOGIN MODAL ================= -->
-
-    <div class="modal" id="loginModal">
-
-        <div class="modal-content">
-
-            <button
-                class="close-btn"
-                onclick="closeLogin()">
-                ×
-            </button>
-
-            <h2>Login</h2>
-
-            <p>Login to manage your bookings.</p>
-
-            <input
-                type="email"
-                id="loginEmail"
-                placeholder="Email address">
-
-            <input
-                type="password"
-                id="loginPassword"
-                placeholder="Password">
-
-            <button
-                class="primary-btn full-btn"
-                onclick="login()">
-
-                Login
-
-            </button>
-
+        <!-- 2. HTML: PROVIDER SIGNUP -->
+        <div id="providerSignupBox" class="hidden">
+            <h2>Join as a Provider</h2>
+            <p class="modal-subtitle">Create your professional account to receive bookings.</p>
+            <form id="providerSignupForm">
+                <div class="field"><label for="pName">Name / Business Name *</label>
+                    <input id="pName" required minlength="3" maxlength="60"></div>
+                <div class="field"><label for="pUsername">Username *</label>
+                    <input id="pUsername" required minlength="4" maxlength="20" placeholder="letters, numbers, underscore"></div>
+                <div class="field"><label for="pService">Service Category *</label>
+                    <select id="pService" required></select></div>
+                <div class="field"><label for="pExperience">Years of Experience *</label>
+                    <input id="pExperience" type="number" min="0" max="60" required></div>
+                <div class="field"><label for="pPhone">Phone Number *</label>
+                    <input id="pPhone" required inputmode="numeric" pattern="[0-9]{10}" maxlength="10"></div>
+                <div class="field"><label for="pPassword">Password *</label>
+                    <input id="pPassword" type="password" required minlength="6" maxlength="100"></div>
+                <button class="btn" style="width:100%" type="submit">Create Provider Account</button>
+                <p id="providerSignupMsg" class="message"></p>
+            </form>
+            <div class="switch">Already registered?
+                <button onclick="openAuth('login');setLoginRole('provider')">Provider Login</button></div>
         </div>
 
     </div>
+</div>
 
+<div id="toast" class="toast"></div>
 
-    <!-- ================= TOAST ================= -->
+<script>
+const services = [
+    { name: "Plumbing", price: 199, icon: "🔧", desc: "Leak fixes, pipe repairs, tap installation and drainage." },
+    { name: "Electrical", price: 149, icon: "⚡", desc: "Wiring, switches, fans, lights and power backup." },
+    { name: "Cleaning", price: 499, icon: "🧹", desc: "Deep home cleaning, kitchen, bathroom and sofa care." },
+    { name: "AC Repair", price: 399, icon: "❄️", desc: "AC servicing, gas top-up, installation and repairs." },
+    { name: "Carpentry", price: 249, icon: "🪚", desc: "Furniture repair, door locks, shelves and woodwork." }
+];
 
-    <div id="toast"></div>
+const subServices = {
+    "Plumbing": ["Tap Leakage & Repair", "Pipe Installation / Repair", "Drainage & Sink Unclogging", "Bathroom Fitting"],
+    "Electrical": ["Switch & Socket Repair", "Fan / Light Installation", "MCB & Wiring Check", "Inverter / Appliance Setup"],
+    "Cleaning": ["Full Home Deep Cleaning", "Bathroom & Kitchen Cleaning", "Sofa & Carpet Cleaning", "Balcony & Window Cleaning"],
+    "AC Repair": ["AC General Servicing", "AC Gas Refill", "AC Installation / Uninstallation", "AC Cooling / Noise Repair"],
+    "Carpentry": ["Door & Lock Repair", "Furniture Assembly / Repair", "Shelf & Cabinet Fitting", "Wood Polish & Touch-up"]
+};
 
+// 3. JS: make the providers list dynamic
+const demoProviders = [
+    { name: "Ramesh Kumar", username: "ramesh_plumb", password: "123456", phone: "9876543210", service: "Plumbing", rating: "4.9", experience: "8+ years", icon: "👨‍🔧" },
+    { name: "Suresh Nair", username: "suresh_elec", password: "123456", phone: "9876543211", service: "Electrical", rating: "4.8", experience: "6+ years", icon: "🧑‍⚡" },
+    { name: "Meena Sharma", username: "meena_clean", password: "123456", phone: "9876543212", service: "Cleaning", rating: "4.9", experience: "5+ years", icon: "👩‍🧹" },
+    { name: "Karthik Rao", username: "karthik_ac", password: "123456", phone: "9876543213", service: "AC Repair", rating: "4.7", experience: "7+ years", icon: "❄️" },
+    { name: "Vikram Das", username: "vikram_carp", password: "123456", phone: "9876543214", service: "Carpentry", rating: "4.8", experience: "9+ years", icon: "🪚" }
+];
 
-    <!-- ================= FOOTER ================= -->
+let providers = [];
 
-    <footer>
+function getStoredProviders() {
+    return JSON.parse(localStorage.getItem("homefix_providers") || "[]");
+}
 
-        <div class="footer-content">
+function loadProviders() {
+    providers = [...demoProviders, ...getStoredProviders()];
+}
 
-            <div>
+let currentUser = JSON.parse(localStorage.getItem("homefix_current_user") || "null");
+let loginRole = "customer";
 
-                <h2>
-                    <i class="fa-solid fa-house"></i>
-                    HomeFix
-                </h2>
+function escapeHTML(str) {
+    return String(str ?? "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#39;");
+}
 
-                <p>
-                    Connecting customers with trusted
-                    home-service professionals.
-                </p>
+function showToast(msg) {
+    const toast = document.getElementById("toast");
+    toast.textContent = msg;
+    toast.classList.add("show");
+    clearTimeout(window.toastTimer);
+    window.toastTimer = setTimeout(() => toast.classList.remove("show"), 2800);
+}
 
+function showMessage(id, text, isSuccess = false) {
+    const el = document.getElementById(id);
+    el.textContent = text;
+    el.classList.toggle("success", isSuccess);
+}
+
+function saveCurrentUser() {
+    if (currentUser) {
+        localStorage.setItem("homefix_current_user", JSON.stringify(currentUser));
+    } else {
+        localStorage.removeItem("homefix_current_user");
+    }
+}
+
+function getUsers() {
+    return JSON.parse(localStorage.getItem("homefix_users") || "[]");
+}
+
+function saveUsers(users) {
+    localStorage.setItem("homefix_users", JSON.stringify(users));
+}
+
+function getBookings() {
+    return JSON.parse(localStorage.getItem("homefix_bookings") || "[]");
+}
+
+function saveBookings(bookings) {
+    localStorage.setItem("homefix_bookings", JSON.stringify(bookings));
+}
+
+function showPage(pageId) {
+    document.querySelectorAll(".page").forEach(p => p.classList.add("hidden"));
+    const target = document.getElementById(pageId) || document.getElementById("home");
+    target.classList.remove("hidden");
+    window.scrollTo({ top: 0, behavior: "smooth" });
+
+    if (pageId === "bookings") renderBookings();
+    if (pageId === "profile") renderProfile();
+    if (pageId === "providerDashboard") renderProviderDashboard();
+}
+
+function updateHeader() {
+    const profileEl = document.getElementById("profileName");
+    const loginBtn = document.getElementById("loginTop");
+    const signupBtn = document.getElementById("signupTop");
+    const logoutBtn = document.getElementById("logoutTop");
+
+    if (currentUser) {
+        profileEl.textContent = `Hi, ${currentUser.name}`;
+        profileEl.style.display = "inline-block";
+        profileEl.onclick = () => showPage(currentUser.role === "provider" ? "providerDashboard" : "profile");
+        loginBtn.classList.add("hidden");
+        signupBtn.classList.add("hidden");
+        logoutBtn.classList.remove("hidden");
+    } else {
+        profileEl.style.display = "none";
+        profileEl.onclick = null;
+        loginBtn.classList.remove("hidden");
+        signupBtn.classList.remove("hidden");
+        logoutBtn.classList.add("hidden");
+    }
+}
+
+// 4. JS: auth modal functions
+function openAuth(mode) {
+    document.getElementById("authBackdrop").style.display = "flex";
+    document.getElementById("signupBox").classList.toggle("hidden", mode !== "signup");
+    document.getElementById("loginBox").classList.toggle("hidden", mode !== "login");
+    document.getElementById("providerSignupBox").classList.toggle("hidden", mode !== "providerSignup");
+    document.getElementById("signupMsg").textContent = "";
+    document.getElementById("loginMsg").textContent = "";
+    document.getElementById("providerSignupMsg").textContent = "";
+    if (mode === "login") setLoginRole("customer");
+}
+
+function closeAuth() {
+    document.getElementById("authBackdrop").style.display = "none";
+}
+
+function setLoginRole(role) {
+    loginRole = role;
+    document.getElementById("roleCustomer").className = role === "customer" ? "btn" : "btn btn-outline";
+    document.getElementById("roleProvider").className = role === "provider" ? "btn" : "btn btn-outline";
+    document.getElementById("providerDemoInfo").classList.toggle("hidden", role !== "provider");
+    document.getElementById("providerSignupSwitch").classList.toggle("hidden", role !== "provider");
+    document.getElementById("loginMsg").textContent = "";
+}
+
+function logout() {
+    currentUser = null;
+    saveCurrentUser();
+    updateHeader();
+    showPage("home");
+    showToast("You have been logged out.");
+}
+
+document.getElementById("signupForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+    const name = document.getElementById("sName").value.trim();
+    const username = document.getElementById("sUsername").value.trim().toLowerCase();
+    const phone = document.getElementById("sPhone").value.trim();
+    const password = document.getElementById("sPassword").value;
+
+    if (!/^[a-z0-9_]{4,20}$/.test(username)) {
+        return showMessage("signupMsg", "Username must be 4-20 letters, numbers or underscores.");
+    }
+    if (!/^[0-9]{10}$/.test(phone)) {
+        return showMessage("signupMsg", "Enter a valid 10-digit phone number.");
+    }
+    if (password.length < 6) {
+        return showMessage("signupMsg", "Password must be at least 6 characters.");
+    }
+
+    const users = getUsers();
+    if (users.some(u => u.username === username)) {
+        return showMessage("signupMsg", "This username is already taken.");
+    }
+
+    // Demo only: real apps must hash passwords on the backend.
+    users.push({ name, username, phone, password });
+    saveUsers(users);
+
+    currentUser = { role: "customer", name, username, phone };
+    saveCurrentUser();
+    updateHeader();
+    closeAuth();
+    event.target.reset();
+    showToast("Account created! Welcome to HomeFix.");
+});
+
+document.getElementById("loginForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+    const username = document.getElementById("lUsername").value.trim().toLowerCase();
+    const password = document.getElementById("lPassword").value;
+
+    if (loginRole === "provider") {
+        const provider = providers.find(p => p.username === username && p.password === password);
+        if (!provider) {
+            return showMessage("loginMsg", "Invalid provider username or password.");
+        }
+        currentUser = {
+            role: "provider",
+            name: provider.name,
+            username: provider.username,
+            service: provider.service
+        };
+        saveCurrentUser();
+        updateHeader();
+        closeAuth();
+        event.target.reset();
+        showPage("providerDashboard");
+        showToast(`Welcome back, ${provider.name}!`);
+        return;
+    }
+
+    const user = getUsers().find(u => u.username === username && u.password === password);
+    if (!user) {
+        return showMessage("loginMsg", "Invalid username or password.");
+    }
+
+    currentUser = {
+        role: "customer",
+        name: user.name,
+        username: user.username,
+        phone: user.phone
+    };
+    saveCurrentUser();
+    updateHeader();
+    closeAuth();
+    event.target.reset();
+    showToast(`Welcome back, ${user.name}!`);
+});
+
+// 5. JS: provider signup handler
+document.getElementById("providerSignupForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const name = document.getElementById("pName").value.trim();
+    const username = document.getElementById("pUsername").value.trim().toLowerCase();
+    const service = document.getElementById("pService").value;
+    const years = document.getElementById("pExperience").value;
+    const phone = document.getElementById("pPhone").value.trim();
+    const password = document.getElementById("pPassword").value;
+    const msg = text => showMessage("providerSignupMsg", text);
+
+    if (!/^[a-z0-9_]{4,20}$/.test(username)) return msg("Username must be 4-20 letters, numbers or underscores.");
+    if (!service) return msg("Please select your service category.");
+    if (!/^[0-9]{10}$/.test(phone)) return msg("Enter a valid 10-digit phone number.");
+    if (password.length < 6) return msg("Password must be at least 6 characters.");
+
+    if (providers.some(p => p.username === username)) return msg("This username is already taken.");
+    if (providers.some(p => p.name.toLowerCase() === name.toLowerCase())) return msg("A provider with this name already exists.");
+
+    // Demo only: real apps must hash passwords on the backend.
+    const stored = getStoredProviders();
+    stored.push({ name, username, password, phone, service,
+                  rating: "New", experience: years + "+ years", icon: "🧰" });
+    localStorage.setItem("homefix_providers", JSON.stringify(stored));
+
+    loadProviders();
+    renderProviders();
+
+    currentUser = { role: "provider", name, username, service };
+    saveCurrentUser();
+    updateHeader();
+    closeAuth();
+    event.target.reset();
+    showPage("providerDashboard");
+    showToast("Provider account created! Welcome to HomeFix.");
+});
+
+// 6. JS: booking changes (a, b, c)
+function renderServices() {
+    const cardHTML = s => `
+        <div class="service-card">
+            <div class="service-icon">${s.icon}</div>
+            <h3>${escapeHTML(s.name)}</h3>
+            <p>${escapeHTML(s.desc)}</p>
+            <div class="price">Starting ₹${escapeHTML(s.price)}</div>
+            <button class="text-button" onclick="bookService('${escapeHTML(s.name)}')">Book Now →</button>
+        </div>`;
+
+    document.getElementById("serviceGrid").innerHTML = services.map(cardHTML).join("");
+    document.getElementById("allServicesGrid").innerHTML = services.map(cardHTML).join("");
+
+    document.getElementById("serviceSelect").innerHTML =
+        '<option value="">Select service category</option>' +
+        services.map(s => `<option value="${escapeHTML(s.name)}">${escapeHTML(s.name)} (Starting ₹${escapeHTML(s.price)})</option>`).join("");
+
+    document.getElementById("pService").innerHTML =
+        '<option value="">Select category</option>' +
+        services.map(s => `<option value="${escapeHTML(s.name)}">${escapeHTML(s.name)}</option>`).join("");
+}
+
+function renderProviders() {
+    const providerCardHTML = provider => `
+        <div class="provider-card">
+            <div class="provider-cover"></div>
+            <div class="provider-content">
+                <div class="provider-avatar">${provider.icon || "🧰"}</div>
+                <h3>${escapeHTML(provider.name)}</h3>
+                <p>${escapeHTML(provider.service)} • ${escapeHTML(provider.experience)}</p>
+                <div class="rating">
+                    ${provider.rating === "New" ? "🆕 New Provider" : "★★★★★ " + escapeHTML(provider.rating)}
+                </div>
+                <button class="btn" onclick="bookWithProvider('${escapeHTML(provider.name)}', '${escapeHTML(provider.service)}')">
+                    Book Appointment
+                </button>
             </div>
+        </div>`;
 
+    document.getElementById("providerGrid").innerHTML = providers.slice(0, 3).map(providerCardHTML).join("");
+    document.getElementById("allProvidersGrid").innerHTML = providers.map(providerCardHTML).join("");
 
-            <div>
+    populateProviderSelect();
+}
 
-                <h3>Services</h3>
+function populateProviderSelect(selectedService = "", selectedProvider = "") {
+    const matching = selectedService
+        ? providers.filter(p => p.service === selectedService)
+        : providers;
+    const list = matching.length ? matching : providers;
 
-                <p>Plumbing</p>
-                <p>Electrical Work</p>
-                <p>Cleaning</p>
-                <p>Carpentry</p>
+    document.getElementById("providerSelect").innerHTML =
+        '<option value="">Select service provider</option>' +
+        list.map(p => `<option value="${escapeHTML(p.name)}" ${p.name === selectedProvider ? "selected" : ""}>${escapeHTML(p.name)} (${escapeHTML(p.service)})</option>`).join("");
+}
 
-            </div>
+function fillSubServices() {
+    const service = document.getElementById("serviceSelect").value;
+    document.getElementById("subServiceSelect").innerHTML =
+        '<option value="">Select specific service</option>' +
+        (subServices[service] || []).map(s =>
+            `<option value="${escapeHTML(s)}">${escapeHTML(s)}</option>`).join("");
+}
 
+function updatePriceEstimate() {
+    fillSubServices();
+    const serviceName = document.getElementById("serviceSelect").value;
+    const service = services.find(s => s.name === serviceName);
+    const estEl = document.getElementById("priceEstimate");
 
-            <div>
+    if (service) {
+        estEl.textContent = `Starting price for ${service.name}: ₹${service.price} (final charges may vary after inspection).`;
+    } else {
+        estEl.textContent = "Select a service to view its starting price.";
+    }
+}
 
-                <h3>Contact</h3>
+document.getElementById("serviceSelect").addEventListener("change", function() {
+    populateProviderSelect(this.value);
+    updatePriceEstimate();
+});
 
-                <p>
-                    <i class="fa-solid fa-phone"></i>
-                    +91 98765 43210
-                </p>
+function bookService(serviceName) {
+    showPage("appointment");
+    document.getElementById("serviceSelect").value = serviceName;
+    populateProviderSelect(serviceName);
+    updatePriceEstimate();
+    if (currentUser && currentUser.role === "customer") {
+        document.getElementById("customerName").value = currentUser.name || "";
+        document.getElementById("customerPhone").value = currentUser.phone || "";
+    }
+}
 
-                <p>
-                    <i class="fa-solid fa-envelope"></i>
-                    support@homefix.com
-                </p>
+function bookWithProvider(providerName, serviceName) {
+    showPage("appointment");
+    document.getElementById("serviceSelect").value = serviceName;
+    populateProviderSelect(serviceName, providerName);
+    updatePriceEstimate();
+    if (currentUser && currentUser.role === "customer") {
+        document.getElementById("customerName").value = currentUser.name || "";
+        document.getElementById("customerPhone").value = currentUser.phone || "";
+    }
+}
 
-            </div>
+// 6. JS: booking changes (d)
+document.getElementById("bookingForm").addEventListener("submit", function(event) {
+    event.preventDefault();
 
+    const service = document.getElementById("serviceSelect").value;
+    const subService = document.getElementById("subServiceSelect").value;
+    const provider = document.getElementById("providerSelect").value;
+    const date = document.getElementById("bookingDate").value;
+    const time = document.getElementById("bookingTime").value;
+    const name = document.getElementById("customerName").value.trim();
+    const phone = document.getElementById("customerPhone").value.trim();
+    const address = document.getElementById("address").value.trim();
+    const description = document.getElementById("description").value.trim();
+
+    if (!service) return showMessage("bookingMsg", "Please select a service category.");
+    if (!subService) { showMessage("bookingMsg", "Please select the specific service."); return; }
+    if (!provider) return showMessage("bookingMsg", "Please select a service provider.");
+    if (!/^[0-9]{10}$/.test(phone)) return showMessage("bookingMsg", "Enter a valid 10-digit phone number.");
+
+    const svcObj = services.find(s => s.name === service);
+    const id = Date.now();
+    const bookingCode = "HF-" + String(id).slice(-6);
+
+    const booking = {
+        id,
+        bookingCode,
+        customerUsername: currentUser && currentUser.role === "customer" ? currentUser.username : null,
+        service,
+        subService,
+        provider,
+        date,
+        time,
+        name,
+        phone,
+        address,
+        description,
+        price: svcObj ? svcObj.price : 199,
+        status: "Pending",
+        createdAt: new Date().toISOString()
+    };
+
+    const bookings = getBookings();
+    bookings.push(booking);
+    saveBookings(bookings);
+
+    showMessage("bookingMsg", `Booking confirmed! Reference ID: ${bookingCode}`, true);
+    event.target.reset();
+    updatePriceEstimate();
+    showToast("Service appointment requested!");
+    showPage("bookings");
+});
+
+// 6. JS: booking changes (e - customer bookings list)
+function renderBookings() {
+    const listEl = document.getElementById("bookingList");
+    const bookings = getBookings();
+    const mine = currentUser && currentUser.role === "customer"
+        ? bookings.filter(b => b.customerUsername === currentUser.username || (!b.customerUsername && b.phone === currentUser.phone))
+        : bookings;
+
+    if (!mine.length) {
+        listEl.innerHTML = '<div class="empty">No bookings found yet. Explore services to schedule your first appointment.</div>';
+        return;
+    }
+
+    listEl.innerHTML = mine.slice().reverse().map(booking => `
+        <div class="booking-row">
+            <strong>${escapeHTML(booking.service)}${booking.subService ? " — " + escapeHTML(booking.subService) : ""}</strong>
+            <span class="status">${escapeHTML(booking.status)}</span>
+            <p>Booking ID: ${escapeHTML(booking.bookingCode || booking.id)} | Provider: ${escapeHTML(booking.provider)}</p>
+            <p>Date: ${escapeHTML(booking.date)} | Time: ${escapeHTML(booking.time)}</p>
+            <p>Customer: ${escapeHTML(booking.name)} | Phone: ${escapeHTML(booking.phone)}</p>
+            <p>Address: ${escapeHTML(booking.address)}</p>
+            <p>Problem: ${escapeHTML(booking.description || "Not specified")}</p>
+            <p>Starting price: ₹${escapeHTML(booking.price)}</p>
         </div>
+    `).join("");
+}
 
+function renderProfile() {
+    const el = document.getElementById("profileDetails");
+    if (!currentUser) {
+        el.innerHTML = '<div class="empty">Please login to view your profile details.</div>';
+        return;
+    }
+    el.innerHTML = `
+        <p><strong>Name:</strong> ${escapeHTML(currentUser.name)}</p>
+        <p style="margin-top:8px"><strong>Username:</strong> ${escapeHTML(currentUser.username)}</p>
+        ${currentUser.phone ? `<p style="margin-top:8px"><strong>Phone:</strong> ${escapeHTML(currentUser.phone)}</p>` : ""}
+        ${currentUser.service ? `<p style="margin-top:8px"><strong>Service Category:</strong> ${escapeHTML(currentUser.service)}</p>` : ""}
+    `;
+}
 
-        <div class="copyright">
+// 7. JS: new provider dashboard
+let dashFilter = { status: "All", sub: "All" };
 
-            © 2026 HomeFix. All Rights Reserved.
+function setDashFilter(key, value) {
+    dashFilter[key] = value;
+    renderProviderDashboard();
+}
 
+function renderProviderDashboard() {
+    if (!currentUser || currentUser.role !== "provider") return;
+
+    const mine = getBookings().filter(b => b.provider === currentUser.name);
+    const count = s => mine.filter(b => b.status === s).length;
+    const subs = subServices[currentUser.service] || [];
+
+    document.getElementById("providerWelcome").textContent =
+        `Welcome ${currentUser.name}! Manage your ${currentUser.service} appointment requests here.`;
+
+    document.getElementById("providerStats").innerHTML = `
+        <div class="stat-card"><strong>${mine.length}</strong>Total</div>
+        <div class="stat-card"><strong>${count("Pending")}</strong>Pending</div>
+        <div class="stat-card"><strong>${count("Accepted")}</strong>Accepted</div>
+        <div class="stat-card"><strong>${count("Completed")}</strong>Completed</div>`;
+
+    const list = mine.filter(b =>
+        (dashFilter.status === "All" || b.status === dashFilter.status) &&
+        (dashFilter.sub === "All" || b.subService === dashFilter.sub));
+
+    const statusOpts = ["All", "Pending", "Accepted", "Rejected", "Completed"].map(s =>
+        `<option ${dashFilter.status === s ? "selected" : ""}>${s}</option>`).join("");
+    const subOpts = ["All", ...subs].map(s =>
+        `<option ${dashFilter.sub === s ? "selected" : ""}>${escapeHTML(s)}</option>`).join("");
+
+    const perService = subs.map(s =>
+        `<span class="status" style="background:#e9f8f5;color:#07534f">
+            ${escapeHTML(s)}: ${mine.filter(b => b.subService === s).length}</span>`).join(" ");
+
+    const rows = list.slice().reverse().map(booking => `
+        <div class="booking-row">
+            <strong>${escapeHTML(booking.service)}${booking.subService ? " — " + escapeHTML(booking.subService) : ""}</strong>
+            <span class="status">${escapeHTML(booking.status)}</span>
+            <p>Booking ID: ${escapeHTML(booking.bookingCode || booking.id)}</p>
+            <p>Customer: ${escapeHTML(booking.name)} | Phone: ${escapeHTML(booking.phone)}</p>
+            <p>Date: ${escapeHTML(booking.date)} | Time: ${escapeHTML(booking.time)}</p>
+            <p>Address: ${escapeHTML(booking.address)}</p>
+            <p>Problem: ${escapeHTML(booking.description || "Not specified")}</p>
+            <p>Starting price: ₹${escapeHTML(booking.price)}</p>
+            ${booking.status === "Pending" ? `
+                <div class="booking-actions">
+                    <button class="btn accept" onclick="updateAppointment(${booking.id},'Accepted')">Accept</button>
+                    <button class="btn reject" onclick="updateAppointment(${booking.id},'Rejected')">Reject</button>
+                </div>` : ""}
+            ${booking.status === "Accepted" ? `
+                <div class="booking-actions">
+                    <button class="btn accept" onclick="updateAppointment(${booking.id},'Completed')">Mark Completed</button>
+                </div>` : ""}
+        </div>`).join("");
+
+    document.getElementById("providerAppointments").innerHTML = `
+        <div style="margin-bottom:14px">${perService}</div>
+        <div class="form-grid" style="margin-bottom:10px">
+            <div class="field"><label>Filter by Service</label>
+                <select onchange="setDashFilter('sub',this.value)">${subOpts}</select></div>
+            <div class="field"><label>Filter by Status</label>
+                <select onchange="setDashFilter('status',this.value)">${statusOpts}</select></div>
         </div>
+        ${rows || '<div class="empty">No appointments match this filter.</div>'}`;
+}
 
-    </footer>
+function updateAppointment(id, status) {
+    if (!currentUser || currentUser.role !== "provider") return;
 
+    const allowed = { Pending: ["Accepted", "Rejected"], Accepted: ["Completed"] };
+    const bookings = getBookings();
+    const booking = bookings.find(b => b.id === id && b.provider === currentUser.name);
 
-    <script src="script.js"></script>
+    if (!booking || !(allowed[booking.status] || []).includes(status)) {
+        showToast("This booking cannot be updated.");
+        return;
+    }
 
+    booking.status = status;
+    booking.updatedAt = new Date().toISOString();
+    saveBookings(bookings);
+    renderProviderDashboard();
+    showToast("Booking " + status.toLowerCase() + " successfully.");
+}
+
+function searchService() {
+    const query = document.getElementById("smartSearch").value.trim().toLowerCase();
+    const resEl = document.getElementById("searchResult");
+
+    if (!query) {
+        resEl.classList.add("hidden");
+        return;
+    }
+
+    const keywords = {
+        "tap": "Plumbing",
+        "leak": "Plumbing",
+        "pipe": "Plumbing",
+        "drain": "Plumbing",
+        "switch": "Electrical",
+        "wire": "Electrical",
+        "fan": "Electrical",
+        "light": "Electrical",
+        "clean": "Cleaning",
+        "sofa": "Cleaning",
+        "ac": "AC Repair",
+        "cool": "AC Repair",
+        "door": "Carpentry",
+        "wood": "Carpentry",
+        "furniture": "Carpentry"
+    };
+
+    let matchedService = services.find(s =>
+        s.name.toLowerCase().includes(query) ||
+        s.desc.toLowerCase().includes(query)
+    );
+
+    if (!matchedService) {
+        for (const [kw, svcName] of Object.entries(keywords)) {
+            if (query.includes(kw)) {
+                matchedService = services.find(s => s.name === svcName);
+                break;
+            }
+        }
+    }
+
+    resEl.classList.remove("hidden");
+    if (matchedService) {
+        resEl.innerHTML = `
+            <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+                <div>
+                    <strong>${matchedService.icon} ${escapeHTML(matchedService.name)}</strong> — Starting at ₹${escapeHTML(matchedService.price)}
+                    <div style="font-size:13px;color:var(--muted)">${escapeHTML(matchedService.desc)}</div>
+                </div>
+                <button class="btn" onclick="bookService('${escapeHTML(matchedService.name)}')">Book Now →</button>
+            </div>
+        `;
+    } else {
+        resEl.innerHTML = `No exact match found for "<strong>${escapeHTML(query)}</strong>". Try searching for Plumbing, Electrical, Cleaning, AC Repair, or Carpentry.`;
+    }
+}
+
+document.getElementById("smartSearch").addEventListener("keydown", function(e) {
+    if (e.key === "Enter") {
+        e.preventDefault();
+        searchService();
+    }
+});
+
+function initializeApp() {
+    loadProviders();
+    renderServices();
+    renderProviders();
+    updateHeader();
+    updatePriceEstimate();
+}
+
+initializeApp();
+</script>
 </body>
-
 </html>
